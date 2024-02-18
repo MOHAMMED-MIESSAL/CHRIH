@@ -20,7 +20,11 @@
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
     @include('components.navbar')
-
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="carousel relative container mx-auto" style="max-width:1600px;">
         <div class="carousel-inner relative overflow-hidden w-full">
             <!--Slide 1-->
@@ -111,7 +115,6 @@
         </div>
     </div>
 
-    =
 
     <section class="bg-white py-8">
 

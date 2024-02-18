@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Http\Controllers\VoyagerAuthController;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/',function () {
     return view('welcome');
 });
 
 Route::get('/singlepage', function () {
     return view('singlepage');
 });
+Route::get('regsiter/form',[AuthController::class,'register_form'])->name('regiter_form');
+Route::post('regsiter',[AuthController::class,'register'])->name('register');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 
 
