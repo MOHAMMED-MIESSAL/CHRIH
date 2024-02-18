@@ -37,7 +37,9 @@
         </div>
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
+            @auth
             <a href="{{route('logout')}}"class="mx-3">{{auth()->user()->name}}</a>
+            @endauth
 
 
             <a class="inline-block no-underline hover:text-black" href="">
