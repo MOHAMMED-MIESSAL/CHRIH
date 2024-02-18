@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Http\Controllers\VoyagerAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MollieController;
 
 
 /*
@@ -23,9 +24,22 @@ Route::get('/',function () {
 Route::get('/singlepage', function () {
     return view('singlepage');
 });
+
+//Auth
 Route::get('regsiter/form',[AuthController::class,'register_form'])->name('regiter_form');
 Route::post('regsiter',[AuthController::class,'register'])->name('register');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
+
+
+//Panier
+Route::get('/panier', function () {
+    return view('panier');
+})->name('panier');
+
+//mollie
+Route::post('mollie', [MollieController::class, 'mollie'])->name('mollie');
+Route::get('success', [MollieController::class, 'success'])->name('success');
+Route::get('cancel', [MollieController::class, 'cancel'])->name('cancel');
 
 
 
