@@ -1,0 +1,8 @@
+/vendor
+composer.phar
+composer.lock
+.DS_Store
+build
+phpstan.neon
+.phpunit.result.cache
+/.idea
