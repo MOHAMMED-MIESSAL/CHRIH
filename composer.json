@@ -11,6 +11,7 @@
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
+        "mollie/laravel-mollie": "^2.25",
         "tcg/voyager": "^1.7"
     },
     "require-dev": {

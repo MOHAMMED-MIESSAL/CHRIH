@@ -26,7 +26,7 @@
 
         <div class="order-1 md:order-2">
             <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
-                href="{{route('home')}}">
+                href="#">
                 <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24">
                     <path
@@ -37,8 +37,12 @@
         </div>
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
+            @auth
+            <a href="{{route('logout')}}"class="mx-3">{{auth()->user()->name}}</a>
+            @endauth
 
-            <a class="inline-block no-underline hover:text-black" href="#">
+
+            <a class="inline-block no-underline hover:text-black" href="">
                 <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24">
                     <circle fill="none" cx="12" cy="7" r="3" />
@@ -47,7 +51,7 @@
                 </svg>
             </a>
 
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="{{route('panier')}}">
                 <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24">
                     <path
@@ -56,8 +60,16 @@
                     <circle cx="17.5" cy="18.5" r="1.5" />
                 </svg>
             </a>
+            @guest
+            <a href="{{route('regiter_form')}}" class="mx-3">register</a>
+            <a href="{{url('/admin')}}">login</a>
+            @endguest
+        
+            @auth
+
+            <a href="{{route('logout')}}"class="mx-3">logout</a>
+            @endauth
 
         </div>
     </div>
 </nav>
-
