@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Http\Controllers\VoyagerAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MollieController;
 
 
@@ -41,7 +42,8 @@ Route::post('mollie', [MollieController::class, 'mollie'])->name('mollie');
 Route::get('success', [MollieController::class, 'success'])->name('success');
 Route::get('cancel', [MollieController::class, 'cancel'])->name('cancel');
 
-
+Route::get('/home',[HomeController::class,'home'])->name('home');
+Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
