@@ -43,12 +43,14 @@ class MollieController extends Controller
         {
             $obj = new Payment();
             $obj->payment_id = $paymentId;
-            $obj->product_name = $payment->description;
+            $obj->numero_serie = $payment->description;
             $obj->quantity = session()->get('quantity');
             $obj->amount = $payment->amount->value;
             $obj->currency = $payment->amount->currency;
             $obj->payment_status = "Completed";
             $obj->payment_method = "Mollie";
+            $obj->user_id = 3;
+
             $obj->save();
 
             session()->forget('paymentId');
