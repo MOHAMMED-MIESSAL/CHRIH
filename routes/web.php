@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MollieController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,10 @@ Route::get('/cart',[ProductController::class,'cart'])->name('cart');
 Route::get('/coupon/{coupon}',[ProductController::class,'coupon'])->name('coupon');
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
+
+
+Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist');
+Route::get('/add_wishlist{wish}',[WishlistController::class,'add'])->name('add_wishlist');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

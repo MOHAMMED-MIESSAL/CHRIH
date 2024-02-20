@@ -13,4 +13,5 @@ class Produit extends Model
     public function users_commande(){
         return $this->BelongsToMany(User::class,'commandes'); 
     }
+ 
 }

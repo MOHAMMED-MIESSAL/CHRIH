@@ -39,9 +39,11 @@
                     </div>
                     <div class="flex">
                         <span class="title-font font-medium text-2xl text-gray-900">${{$produit->prix }}</span>
+                        @if (!$produits_cart->contains('produit_id', $produit->id))
                         <a @auth href="{{route('add_cart',$produit->id)}}" @endauth @guest href="/admin" @endguest class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                             Add to cart
                         </a>
+                        @endif
                         
 
 
