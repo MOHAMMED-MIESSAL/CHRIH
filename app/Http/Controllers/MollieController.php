@@ -11,26 +11,25 @@ class MollieController extends Controller
 {
     public function mollie(Request $request)
     {
-        $payment = Mollie::api()->payments->create([
-            "amount" => [
-                "currency" => "EUR",
-                "value" => "10.00" 
-            ],
-            "description" => "product_name",
-            "redirectUrl" => route('success'),
-            //"webhookUrl" => route('webhooks.mollie'),
-            // "metadata" => [
-            //     "order_id" => Carbon::now(),
-            // ],
-        ]);
+        $products_quantites = array_combine($request->produits, $request->qte);
+        
+        
+        // $payment = Mollie::api()->payments->create([
+        //     "amount" => [
+        //         "currency" => "EUR",
+        //         "value" => "10.00" 
+        //     ],
+        //     "description" => "product_name",
+        //     "redirectUrl" => route('success'),
+        // ]);
 
-        //dd($payment);
+        // //dd($payment);
 
-        session()->put('paymentId', $payment->id);
-        session()->put('quantity', 3);
+        // session()->put('paymentId', $payment->id);
+        // session()->put('quantity', 3);
     
-        // redirect customer to Mollie checkout page
-        return redirect($payment->getCheckoutUrl(), 303);
+        // // redirect customer to Mollie checkout page
+        // return redirect($payment->getCheckoutUrl(), 303);
     }
 
     public function success(Request $request)

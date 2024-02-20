@@ -46,6 +46,7 @@ Route::get('cancel', [MollieController::class, 'cancel'])->name('cancel');
 Route::get('/profile',[AuthController::class,'profile'])->name('profile');
 Route::get('/home',[HomeController::class,'home'])->name('home');
 Route::get('/cart',[ProductController::class,'cart'])->name('cart');
+Route::get('/coupon/{coupon}',[ProductController::class,'coupon'])->name('coupon');
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
 

@@ -26,7 +26,7 @@
 
         <div class="order-1 md:order-2">
             <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
-                href="#">
+                href="{{route('home')}}">
                 <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24">
                     <path
@@ -44,7 +44,7 @@
             
            
 
-            <a class="pl-3 inline-block no-underline hover:text-black" @auth href="{{route('panier')}}" @endauth @guest href="/admin" @endguest >
+            <a class="pl-3 inline-block no-underline hover:text-black" @auth href="{{route('cart')}}" @endauth @guest href="/admin" @endguest >
                 <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24">
                     <path
