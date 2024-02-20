@@ -45,6 +45,9 @@ class User extends \TCG\Voyager\Models\User
     public function produits_panier(){
         return $this->BelongsToMany(Produit::class,'carts'); 
     }
+    public function produits_wishlist(){
+        return $this->BelongsToMany(Wishlist::class,'wishlists'); 
+    }
     public function produits_commande(){
         return $this->BelongsToMany(Produit::class,'commandes'); 
     }

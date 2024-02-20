@@ -19,6 +19,7 @@ class HomeController extends Controller
         $produit=Produit::find($id);
         $user=Auth::user();
         $produits_cart =$user->produits_panier()->get();
-        return view('produit',compact('produit','produits_cart'));
+        $wishlist = Wishlist::where('user_id', Auth::id())->get();
+        return view('produit',compact('produit','produits_cart','wishlist'));
     }
 }

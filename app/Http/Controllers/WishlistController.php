@@ -14,7 +14,10 @@ class WishlistController extends Controller
 {
   public function index(){
     $wishlist = Wishlist::where('user_id', Auth::id())->get();
-    return view('wishlist',compact('wishlist'));
+    $user=Auth::user();
+    $produits_cart =$user->produits_panier()->pluck('produit_id');
+    // var_dump($produits_cart);
+    return view('wishlist',compact('wishlist','produits_cart'));
   }
   public function add( $id){
    
@@ -30,8 +33,8 @@ class WishlistController extends Controller
       }
   public function delete($id)
   {
-    DB::table("wishlists")->where('produit_id', $id)->delete();
-    return redirect(route('home'));
+    DB::table("wishlists")->where('produit_id', $id)->where('user_id',Auth::id())->delete();
+    return redirect(route('wishlist'));
 
  
 

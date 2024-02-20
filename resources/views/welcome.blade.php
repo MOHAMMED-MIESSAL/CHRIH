@@ -159,7 +159,7 @@
                             <p class="">{{ $pro->title }}</p>
                         </a>
                         @auth
-                        @if (!$wishlist->contains('produit_id', $pro->id))
+                    @if (!$wishlist->contains('produit_id', $pro->id))
                          <a href="{{route('add_wishlist',$pro->id)}}">
                             <svg class="h-6 w-6 fill-current  text-gray-500 hover:text-black"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

@@ -51,7 +51,7 @@
                                 <div class="flex flex-wrap items-center -mx-4">
                                     <div class="w-full px-4 mb-3 md:w-1/3">
                                         <div class="w-full h-96 md:h-24 md:w-24">
-                                            {{-- <img src="{{ asset('storage/' . $wish->produit->image) }}" alt="" class="object-contain w-full h-full"> --}}
+                                            <img src="{{ asset('storage/' . $wish->produit->image) }}" alt="" class="object-contain w-full h-full">
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,12 @@
                                 <p class="text-lg font-bold text-blue-500 dark:text-gray-400">{{ $wish->produit->prix }}</p>
                             </div>
                             <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12">
-                                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to cart</button>
+                                @if (!$produits_cart->contains(  $wish->produit->id))
+                                <a @auth href="{{route('add_cart',$wish->produit->id)}}" @endauth @guest href="/admin" @endguest class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                                    Add to cart
+                                </a>
+                                @endif
+                                <a class="" href="{{route('delete_wishlist',$wish->produit->id)}}">Delete</a>
                             </div>
                         </div>
                     @endforeach
