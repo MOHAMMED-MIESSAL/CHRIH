@@ -24,6 +24,10 @@ class ProductController extends Controller
         $produits=$user->produits_panier()->get();
         return view('panier',compact('produits'));
     }
+    public function delete_product_cart($id){
+        Auth::user()->produits_panier()->detach($id);
+        return redirect()->route('cart');
+    }
     public function coupon($coupon){
         $coupon=Coupon::where('coupon',$coupon)->first();
         if(!$coupon) return false;

@@ -92,7 +92,9 @@
                                 </div>
                                 <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
                                     <p class="text-lg font-bold text-blue-500 dark:text-gray-400">$99.00</p>
+                                    <a class="" href="{{route('delete_product_cart',$produit->id)}}">Delete</a>
                                 </div>
+                                
                             </div>
                         @endforeach
                         
