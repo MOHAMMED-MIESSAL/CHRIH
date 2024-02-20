@@ -5,31 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Mollie\Laravel\Facades\Mollie;
- 
+
 class MollieController extends Controller
 {
     public function mollie(Request $request)
     {
-        $products_quantites = array_combine($request->produits, $request->qte);
+        // $products_quantites = array_combine($request->produits, $request->qte);
         
         
-        // $payment = Mollie::api()->payments->create([
-        //     "amount" => [
-        //         "currency" => "EUR",
-        //         "value" => "10.00" 
-        //     ],
-        //     "description" => "product_name",
-        //     "redirectUrl" => route('success'),
-        // ]);
+        $payment = Mollie::api()->payments->create([
+            "amount" => [
+                "currency" => "EUR",
+                "value" => "10.00" 
+            ],
+            "description" => "product_name",
+            "redirectUrl" => route('success'),
+        ]);
 
-        // //dd($payment);
+        // dd($payment);
 
-        // session()->put('paymentId', $payment->id);
-        // session()->put('quantity', 3);
+        session()->put('paymentId', $payment->id);
+        session()->put('quantity', 3);
     
-        // // redirect customer to Mollie checkout page
-        // return redirect($payment->getCheckoutUrl(), 303);
+        // redirect customer to Mollie checkout page
+        return redirect($payment->getCheckoutUrl(), 303);
     }
 
     public function success(Request $request)
@@ -48,7 +49,7 @@ class MollieController extends Controller
             $obj->currency = $payment->amount->currency;
             $obj->payment_status = "Completed";
             $obj->payment_method = "Mollie";
-            $obj->user_id = 3;
+            $obj->user_id = Auth::id();
 
             $obj->save();
 
