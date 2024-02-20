@@ -54,8 +54,10 @@ Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
 
 Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist');
 Route::get('/add_wishlist{wish}',[WishlistController::class,'add'])->name('add_wishlist');
+Route::get('/delete_wishlist{wish}',[WishlistController::class,'delete'])->name('delete_wishlist');
 
-Route::group(['prefix' => 'admin'], function () {
+
+Route::group(['prefix' => 'admin'], function () {   
     Voyager::routes();
 });
 

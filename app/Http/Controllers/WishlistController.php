@@ -8,6 +8,7 @@ use App\Models\Wishlist;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class WishlistController extends Controller
 {
@@ -25,10 +26,15 @@ class WishlistController extends Controller
             $wish->save();
             return redirect(route('wishlist'));
 
-        }
+        } 
+      }
+  public function delete($id)
+  {
+    DB::table("wishlists")->where('produit_id', $id)->delete();
+    return redirect(route('home'));
 
  
 
-    }
+  }    
   
 }

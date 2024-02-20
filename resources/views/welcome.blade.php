@@ -170,7 +170,7 @@
                      @endif
                      @if ($wishlist->contains('produit_id', $pro->id))
 
-                     <i class="fa-solid fa-heart"></i>
+                     <a href="{{route('delete_wishlist',$pro->id)}}"><i class="fa-solid fa-heart"></i></a>
                      @endif
                     @endauth
                         
