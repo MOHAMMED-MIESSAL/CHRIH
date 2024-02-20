@@ -35,6 +35,7 @@ class MollieController extends Controller
 
     public function success(Request $request)
     {
+        
         $paymentId = session()->get('paymentId');
         //dd($paymentId);
         $payment = Mollie::api()->payments->get($paymentId);

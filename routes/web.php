@@ -50,6 +50,7 @@ Route::get('/cart',[ProductController::class,'cart'])->name('cart');
 Route::get('/coupon/{coupon}',[ProductController::class,'coupon'])->name('coupon');
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
+Route::get('/produit/delete/cart/{id}',[ProductController::class,'delete_product_cart'])->name('delete_product_cart');
 
 
 Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist');
