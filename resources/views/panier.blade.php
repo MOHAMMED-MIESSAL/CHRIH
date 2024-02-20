@@ -19,214 +19,130 @@
 
  <body>
     
-    @include('components.navbar')
+@include('components.navbar')
 
-
-    <div class="h-screen bg-gray-300">
-        <div class="py-12">
-            
-        
-        <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg  md:max-w-5xl">
-            <div class="md:flex ">
-                <div class="w-full p-4 px-5 py-5">
-    
-                    <div class="md:grid md:grid-cols-3 gap-2 ">
-    
-                        <div class="col-span-2 p-5">
-    
-                            <h1 class="text-xl font-medium ">Shopping Cart</h1>
-    
-                            <div class="flex justify-between items-center mt-6 pt-6">
-                                <div class="flex  items-center">
-                                    <img src="https://i.imgur.com/EEguU02.jpg" width="60" class="rounded-full ">
-    
-                                    <div class="flex flex-col ml-3">
-                                        <span class="md:text-md font-medium">Chicken momo</span>
-                                        <span class="text-xs font-light text-gray-400">#41551</span>
-                                        
-                                    </div>
-    
-                                    
-                                </div>
-    
-                                <div class="flex justify-center items-center">
-                                    
-                                    <div class="pr-8 flex ">
-                                        <span class="font-semibold">-</span>
-                                        <input type="text" class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value="1">
-                                        <span class="font-semibold">+</span>
-                                    </div>
-    
-                                    <div class="pr-8 ">
-                                        
-                                        <span class="text-xs font-medium">$10.50</span>
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-close text-xs font-medium"></i>
-                                    </div>
-    
-                                </div>
-                                
-                            </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-                            <div class="flex justify-between items-center pt-6 mt-6 border-t">
-                                <div class="flex  items-center">
-                                    <img src="https://i.imgur.com/Uv2Yqzo.jpg" width="60" class="rounded-full ">
-    
-                                    <div class="flex flex-col ml-3 ">
-                                        <span class="text-md font-medium w-auto">Spicy Mexican potatoes</span>
-                                        <span class="text-xs font-light text-gray-400">#66999</span>
-                                        
-                                    </div>
-    
-                                    
-                                </div>
-    
-                                <div class="flex justify-center items-center">
-                                    
-                                    <div class="pr-8 flex">
-                                        <span class="font-semibold">-</span>
-                                        <input type="text" class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value="1">
-                                        <span class="font-semibold">+</span>
-                                    </div>
-    
-                                    <div class="pr-8">
-                                        
-                                        <span class="text-xs font-medium">$10.50</span>
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-close text-xs font-medium"></i>
-                                    </div>
-    
-                                </div>
-                                
-                            </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-                            <div class="flex justify-between items-center mt-6 pt-6 border-t">
-                                <div class="flex  items-center">
-                                    <img src="https://i.imgur.com/xbTAITF.jpg" width="60" class="rounded-full ">
-    
-                                    <div class="flex flex-col ml-3 ">
-                                        <span class="text-md font-medium">Breakfast</span>
-                                        <span class="text-xs font-light text-gray-400">#86577</span>
-                                        
-                                    </div>
-    
-                                    
-                                </div>
-    
-                                <div class="flex justify-center items-center">
-                                    
-                                    <div class="pr-8 flex">
-                                        <span class="font-semibold">-</span>
-                                        <input type="text" class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value="1">
-                                        <span class="font-semibold">+</span>
-                                    </div>
-    
-                                    <div class="pr-8">
-                                        
-                                        <span class="text-xs font-medium">$10.50</span>
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-close text-xs font-medium"></i>
-                                    </div>
-    
-                                </div>
-                                
-                            </div>
-    
-    
-    
-                            <div class="flex justify-between items-center mt-6 pt-6 border-t"> 
-                                <div class="flex items-center">
-                                    <i class="fa fa-arrow-left text-sm pr-2"></i>
-                                    <span class="text-md  font-medium text-blue-500">Continue Shopping</span>
-                                </div>
-    
-                                <div class="flex justify-center items-end">
-                                    <span class="text-sm font-medium text-gray-400 mr-1">Subtotal:</span>
-                                    <span class="text-lg font-bold text-gray-800 "> $24.90</span>
-                                    
-                                </div>
-                                
-                            </div>
-    
-    
-    
-    
-    
-    
-    
-    
-                            
-                        </div>
-                        <div class=" p-5 bg-gray-800 rounded overflow-visible">
- 
-    
-                            <div class="flex justify-center flex-col pt-3">
-                                <label class="text-xs text-gray-400 ">code promo</label>
-                                <input type="text" class="focus:outline-none w-full h-6 bg-gray-800 text-white placeholder-gray-300 text-sm border-b border-gray-600 py-4" placeholder="******">
-                            </div>
-    
-     
-    
-    
-    
-    
-                            <div class="grid grid-cols-3 gap-2 pt-2 mb-3">
-    
-     
-                                   
-    
-    
-                                    
-       
-                                
-                            </div>
-    
-    
-    
-    <form action="{{route('mollie')}}" method="POST">
-        @csrf
-    
-                            <button class="h-12 w-full bg-red-500 rounded focus:outline-none text-white hover:bg-blue-600">Check Out</button>
-    </form>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-                            
-                        </div>
-    
-                        
+<section class="py-24 bg-gray-100 font-poppins dark:bg-gray-700">
+    <div class="px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
+        <div>
+            <h2 class="mb-8 text-4xl font-bold dark:text-gray-400">Your Cart</h2>
+            <div class="p-6 mb-8 border bg-gray-50 dark:bg-gray-800 dark:border-gray-800">
+                <div class="flex-wrap items-center hidden mb-6 -mx-4 md:flex md:mb-8">
+                    <div class="w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0">
+                        <h2 class="font-bold text-gray-500 dark:text-gray-400">Product name</h2>
                     </div>
+                    <div class="hidden px-4 lg:block lg:w-2/12">
+                        <h2 class="font-bold text-gray-500 dark:text-gray-400">Price</h2>
+                    </div>
+                    <div class="w-auto px-4 md:w-1/6 lg:w-2/12 ">
+                        <h2 class="font-bold text-gray-500 dark:text-gray-400">Quantity</h2>
+                    </div>
+                    <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
+                        <h2 class="font-bold text-gray-500 dark:text-gray-400"> Subtotal</h2>
+                    </div>
+                </div>
+                <div class="py-4 mb-8 border-t border-b border-gray-200 dark:border-gray-700">
+                    @foreach ($produits as $produit)
+                        <div class="flex flex-wrap items-center mb-6 -mx-4 md:mb-8">
+                            <div class="w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0">
+                                <div class="flex flex-wrap items-center -mx-4">
+                                    <div class="w-full px-4 mb-3 md:w-1/3">
+                                        <div class="w-full h-96 md:h-24 md:w-24">
+                                            <img src="{{ asset('storage/'.$produit->image) }}" alt=""
+                                                class="object-cover w-full h-full">
+                                        </div>
+                                    </div>
+                                    <div class="w-2/3 px-4">
+                                        <h2 class="mb-2 text-xl font-bold dark:text-gray-400">{{ $produit->title }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden px-4 lg:block lg:w-2/12">
+                                <p class="text-lg font-bold text-blue-500 dark:text-gray-400">${{ $produit->prix }}</p>
+                            </div>
+                            <div class="w-auto px-4 md:w-1/6 lg:w-2/12 ">
+                                <div
+                                    class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700 ">
+                                    <button class="py-2 hover:text-gray-700 dark:text-gray-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                        </svg>
+                                    </button>
+                                    <input type="number" name="qte"
+                                        class="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-gray-400 md:text-right"
+                                        placeholder="1">
+                                    <button class="py-2 hover:text-gray-700 dark:text-gray-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
+                                <p class="text-lg font-bold text-blue-500 dark:text-gray-400">$99.00</p>
+                            </div>
+                        </div>
+                    @endforeach
                     
-                   
-               </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full px-4 mb-4 lg:w-1/2 ">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <span class="text-gray-700 dark:text-gray-400">Apply Coupon</span>
+                        <input type="text"
+                            class="w-full px-8 py-4 font-normal placeholder-gray-400 border lg:flex-1 dark:border-gray-700 dark:placeholder-gray-500 dark:text-gray-400 dark:bg-gray-800"
+                            placeholder="x304k45" required>
+                        <button
+                            class="inline-block w-full px-8 py-4 font-bold text-center text-gray-100 bg-blue-500 rounded-md lg:w-32 hover:bg-blue-600">Apply</button>
+                    </div>
+                </div>
+                <div class="w-full px-4 mb-4 lg:w-1/2 ">
+                    <div class="p-6 border border-blue-100 dark:bg-gray-900 dark:border-gray-900 bg-gray-50 md:p-8">
+                        <h2 class="mb-8 text-3xl font-bold text-gray-700 dark:text-gray-400">Order Summary</h2>
+                        <div
+                            class="flex items-center justify-between pb-4 mb-4 border-b border-gray-300 dark:border-gray-700 ">
+                            <span class="text-gray-700 dark:text-gray-400">Subtotal</span>
+                            <span class="text-xl font-bold text-gray-700 dark:text-gray-400 ">$100</span>
+                        </div>
+                        <div class="flex items-center justify-between pb-4 mb-4 ">
+                            <span class="text-gray-700 dark:text-gray-400 ">Shipping</span>
+                            <span class="text-xl font-bold text-gray-700 dark:text-gray-400 ">Free</span>
+                        </div>
+                        <div class="flex items-center justify-between pb-4 mb-4 ">
+                            <span class="text-gray-700 dark:text-gray-400">Order Total</span>
+                            <span class="text-xl font-bold text-gray-700 dark:text-gray-400">$99.00</span>
+                        </div>
+                        <h2 class="text-lg text-gray-500 dark:text-gray-400">We offer:</h2>
+                        <div class="flex items-center gap-2 mb-4 ">
+                            <a href="#">
+                                <img src="https://i.postimg.cc/g22HQhX0/70599-visa-curved-icon.png" alt=""
+                                    class="object-cover h-16 w-26">
+                            </a>
+                            <a href="#">
+                                <img src="https://i.postimg.cc/HW38JkkG/38602-mastercard-curved-icon.png" alt=""
+                                    class="object-cover h-16 w-26">
+                            </a>
+                            <a href="#">
+                                <img src="https://i.postimg.cc/HL57j0V3/38605-paypal-straight-icon.png" alt=""
+                                    class="object-cover h-16 w-26">
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-between ">
+                            <button
+                                class="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-blue-500 rounded-md hover:bg-blue-600">Checkout</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
     </div>
+</section>
+
+
+@include('components.footer')
+
+
+       

@@ -5,7 +5,7 @@ use TCG\Voyager\Http\Controllers\VoyagerAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MollieController;
-
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,12 +39,17 @@ Route::get('/panier', function () {
 
 //mollie
 Route::post('mollie', [MollieController::class, 'mollie'])->name('mollie');
+Route::get('add_cart/{id}', [ProductController::class, 'add_cart'])->name('add_cart');
 Route::get('success', [MollieController::class, 'success'])->name('success');
 Route::get('cancel', [MollieController::class, 'cancel'])->name('cancel');
 
+Route::get('/profile',[AuthController::class,'profile'])->name('profile');
 Route::get('/home',[HomeController::class,'home'])->name('home');
+Route::get('/cart',[ProductController::class,'cart'])->name('cart');
+Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+

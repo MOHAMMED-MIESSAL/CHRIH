@@ -14,14 +14,14 @@ class MollieController extends Controller
         $payment = Mollie::api()->payments->create([
             "amount" => [
                 "currency" => "EUR",
-                "value" => "10.00" // You must send the correct number of decimals, thus we enforce the use of strings
+                "value" => "10.00" 
             ],
             "description" => "product_name",
             "redirectUrl" => route('success'),
             //"webhookUrl" => route('webhooks.mollie'),
-            "metadata" => [
-                "order_id" => Carbon::now(),
-            ],
+            // "metadata" => [
+            //     "order_id" => Carbon::now(),
+            // ],
         ]);
 
         //dd($payment);
