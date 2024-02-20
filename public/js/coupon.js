@@ -11,7 +11,7 @@ document.getElementById('btn_coupon').addEventListener('click',()=>{
                 if(!data) document.getElementById('msg_coupon').textContent='Coupon incorrect';
                 else {
                     document.getElementById('msg_coupon').textContent='';
-                    alert('ok');
+                    
                 }
             },
             
