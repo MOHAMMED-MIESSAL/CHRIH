@@ -45,6 +45,9 @@ Route::get('/success', [MollieController::class, 'success'])->name('success');
 Route::get('cancel', [MollieController::class, 'cancel'])->name('cancel');
 
 Route::get('/profile',[AuthController::class,'profile'])->name('profile');
+Route::get('/products/{payment}',[AuthController::class,'afficher_products'])->name('products');
+
+
 Route::get('/home',[HomeController::class,'home'])->name('home');
 Route::get('/cart',[ProductController::class,'cart'])->name('cart');
 Route::get('/coupon/{coupon}',[ProductController::class,'coupon'])->name('coupon');

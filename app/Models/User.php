@@ -51,4 +51,10 @@ class User extends \TCG\Voyager\Models\User
     public function produits_commande(){
         return $this->BelongsToMany(Produit::class,'commandes'); 
     }
+
+    public function produits_payment(){
+        return $this->BelongsTo(Payment::class ); 
+    }
+
+
 }
