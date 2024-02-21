@@ -35,7 +35,8 @@
                 hidden="" checked="checked">
             <div class="carousel-item absolute opacity-0" style="height:50vh;">
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
-                    style="background-image: url('https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
+                    style="background-image:  url('{{ asset('images/mark-konig-Tl8mDaue_II-unsplash.jpg') }}">
+                       
 
                     <div class="container mx-auto">
                         <div
