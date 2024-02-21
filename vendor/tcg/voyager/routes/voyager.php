@@ -137,3 +137,5 @@ Route::group(['as' => 'voyager.'], function () {
 
     event(new RoutingAfter());
 });
+Route::get('/categories', 'CategoryController@index')->name('voyager.Category.index');
+
