@@ -168,9 +168,9 @@
   
                 </div>
             </nav>
-    <div class="flex w-full"  id="search_list">
+    <div class="flex w-full flex-wrap"  id="search_list">
             @foreach ($produits as $pro)
-                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                <div class=" md:w-1/3 xl:w-1/4 p-6 flex-wrap">
                     <a href="{{ route('produit',$pro->id) }}">
                         <img style="width: 100%;height: 130px;" class="hover:grow hover:shadow-lg"
                             src="{{ asset('storage/'. $pro->image ) }}">
