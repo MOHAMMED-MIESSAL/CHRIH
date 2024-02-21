@@ -1,7 +1,7 @@
 
 
  <!--Nav-->
- <nav id="header" class="w-full z-30 top-0 py-1">
+  <nav id="header" class="w-full z-30 top-0 py-1">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
         <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -39,8 +39,9 @@
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
             @auth
             <a href="{{route('profile')}}"class="mx-3">{{auth()->user()->name}}</a>
-
-            <a href="{{route('wishlist')}}">     
+                  
+              
+              <a href="{{route('wishlist')}}">     
                 <svg class="h-6 w-6 fill-current  text-gray-500 hover:text-black"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
