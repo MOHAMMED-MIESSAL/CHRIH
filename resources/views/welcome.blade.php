@@ -134,18 +134,30 @@
 
         </div>
     </div>
-
-
+ 
     <section class="bg-white py-8">
 
+
         <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+            
 
             <nav id="store" class="w-full z-30 top-0 px-6 py-1">
+                
                 <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
                     <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
                         Store
                     </a>
+                    
+             <select id="category" style="width: 20%;"  name="category"
+             class="w-full h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
+             <option value="All" selected="">chose category</option>
+             @foreach($categorys as $cat)
+
+             <option value="{{$cat->id}}">{{$cat->name}}</option>
+             @endforeach
+             
+          </select>
                     
                     <div class="flex items-center" id="store-nav-content">
 
@@ -232,7 +244,53 @@
               }
           });
       });
+
+      
+      
+      $(document).ready(function(){
+    $("#category").on('change', function(){
+        var category = $(this).val(); 
+        $.ajax({
+            url: "{{ route('filter') }}",
+            method: "GET",
+            data: {
+                category: category
+            },
+            success: function(data){
+                var produits = data.produits;
+                var html = '';
+                if(produits.length >0){
+
+             
+                for(let i = 0; i < produits.length; i++) {
+                    html += '<div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4 min-w-0">';
+                    html += '<div class="p-6 flex flex-col bg-white shadow-md">';
+                    html += '<a href="{{ route('produit', 'id') }}">';
+                        html += '<img style="width: 100%; height: 130px;" class="hover:grow hover:shadow-lg" src="{{ asset('storage') }}/' + produits[i].image + '">';
+                    html += '<div class="pt-3 flex items-center justify-between">';
+                    html += '<div>';
+                    html += '<p>' + produits[i].title + '</p>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</a>';
+                    // Ajoutez ici le reste de votre contenu HTML pour chaque produit
+                    html += '</div>';
+                    html += '</div>';
+                }
+            }else{
+                html+='<h1>Not Found products</h1>'
+            }
+                $("#search_list").html(html);
+
+            }
+        });
+    });
+});
+
   });
+
+ 
+ 
     </script>
 {{-- <script src="{{asset('js/search.js')}}"></script> --}}
 

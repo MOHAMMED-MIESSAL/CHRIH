@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Produit;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -10,11 +11,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
-    public function home(){
+    public function home(Request $request){
         $produits = Produit::paginate(12);
         $wishlist = Wishlist::where('user_id', Auth::id())->get();
-        return view('welcome',compact('produits','wishlist'));
+        $categorys = Category::all();
+
+        if($request->ajax()){
+          
+            $produits = Produit::where('category_id', $request->category)->get();
+            return response()->json(['produits'=>$produits]);
+
+        }
+
+        return view('welcome',compact('produits','wishlist','categorys'));
     }
+
+
     public function produit(int $id){
         $produit=Produit::find($id);
         $user=Auth::user();

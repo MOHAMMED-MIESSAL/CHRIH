@@ -74,7 +74,7 @@ class MollieController extends Controller
                 ]);
             }
 
-            // delete the cart of user
+            // delete the cart of user²
             Cart::where('user_id',Auth::id())->delete();
 
             session()->forget('paymentId');
