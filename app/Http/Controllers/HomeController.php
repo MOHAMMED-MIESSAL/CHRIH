@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function home(){
-        $produits = Produit::paginate(8);
+        $produits = Produit::paginate(12);
         $wishlist = Wishlist::where('user_id', Auth::id())->get();
         return view('welcome',compact('produits','wishlist'));
     }
