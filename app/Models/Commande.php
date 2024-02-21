@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commande extends Model
 {
-    
+    protected $fillable = [
+        'produit_id',
+        'user_id',
+        'qte',
+        'numero_commande',
+    ];
 }
