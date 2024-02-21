@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
@@ -14,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -29,6 +31,7 @@
         <div class="carousel-inner relative overflow-hidden w-full">
             <!--Slide 1-->
             <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
             <div class="carousel-item absolute opacity-0" style="height:50vh;">
             
                 <!-- <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" 
@@ -38,7 +41,9 @@
 
                     <div class="container mx-auto">
                         <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                        <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                             <p class="text-black text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
+                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
                             <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
                         </div>
                     </div>
@@ -57,9 +62,26 @@
                         </div>
                     </div> -->
 
+                </div> -->
+
+                <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" 
+                style="background-image: 
+                url(' {{ asset('images/mark-konig-Tl8mDaue_II-unsplash.jpg') }} ');"
+                >
+
+                    <!-- <div class="container mx-auto">
+                        <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            <p class="text-black text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
+                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
+                        </div>
+                    </div> -->
+
                 </div>
 
+
             </div>
+            <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+            <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
             <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
             <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
 
@@ -124,7 +146,7 @@
                     <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
                         Store
                     </a>
-
+                    
                     <div class="flex items-center" id="store-nav-content">
 
                         <a class="pl-3 inline-block no-underline hover:text-black" href="#">
@@ -132,57 +154,89 @@
                                 <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                             </svg>
                         </a>
-
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                            <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
-                            </svg>
-                        </a>
+                        <div class="container_search">
+                            <input checked="" class="checkbox" type="checkbox"> 
+                            <div class="mainbox">
+                                <div class="iconContainer">
+                                    <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="search_icon"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
+                                </div>
+                             <input class="search_input" id="hero_field" placeholder="search by title and price" type="text">
+                            </div>
+                        </div>
 
                     </div>
+  
                 </div>
             </nav>
-
+    <div class="flex w-full"  id="search_list">
             @foreach ($produits as $pro)
-            <div class="w-full md:w-1/3 xl:w-1/6 p-6 flex flex-col">
-                <a href="{{ route('produit', $pro->id) }}">
-                    <img style="width: 100%;height: 130px;" class="hover:grow hover:shadow-lg" src="{{ asset('storage/' . $pro->image) }}">
-                    <div class="pt-3 flex items-center justify-between">
-                        <p class="">{{ $pro->title }}</p>
-                </a>
-                @auth
-                @if (!$wishlist->contains('produit_id', $pro->id))
-                <a href="{{ route('add_wishlist', $pro->id) }}">
-                    <svg class="h-6 w-6 fill-current  text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                    </svg>
-                </a>
-                @endif
-                @if ($wishlist->contains('produit_id', $pro->id))
-                <a href="{{ route('delete_wishlist', $pro->id) }}"><i class="fa-solid fa-heart"></i></a>
-                @endif
-                @endauth
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="{{ route('produit',$pro->id) }}">
+                        <img style="width: 100%;height: 130px;" class="hover:grow hover:shadow-lg"
+                            src="{{ asset('storage/'. $pro->image ) }}">
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class="">{{ $pro->title }}</p>
+                            <p class="">{{ $pro->description }}</p>
 
-            </div>
-            <p class="pt-1 text-gray-900  ">{{ $pro->prix }}$</p>
+                            <p style=" color:white; background-color: gray; border-radius:5px ;     width: 86px; " >{{ $pro->category->name  }}</p>
+                        </a> 
 
+                        @auth
+                    @if (!$wishlist->contains('produit_id', $pro->id))
+                         <a href="{{route('add_wishlist',$pro->id)}}">
+                            <svg class="h-6 w-6 fill-current  text-gray-500 hover:text-black"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                            </svg>
+                        </a>
+                     @endif
+                     @if ($wishlist->contains('produit_id', $pro->id))
+
+                     <a href="{{route('delete_wishlist',$pro->id)}}"><i class="fa-solid fa-heart"></i></a>
+                     @endif
+                    @endauth
+                        
+                        </div>
+                        <p class="pt-1 text-gray-900">{{ $pro->prix }}$</p>
+                   
+                </div>
+            @endforeach
+           
+            {{ $produits->links()  }}
+
+            
         </div>
-        @endforeach
-
-        <div class="flex flex-col">
-        {{ $produits->links() }}
-
-        </div>
-
-
-
-
-        </div>
+    </div>    
+        
 
     </section>
 
 
     @include('components.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+      
+
+      $("#hero_field").keyup(function(){
+          var input = $(this).val(); 
+          if(input == "") input = 'all';
+          $.ajax({
+              url: "/search",
+              method: "POST",
+              data: {
+                  _token: '{{ csrf_token() }}', // Inclure le jeton CSRF 
+                  input: input
+              },
+              success: function(data){
+                  $("#search_list").html(data);
+              }
+          });
+      });
+  });
+    </script>
+{{-- <script src="{{asset('js/search.js')}}"></script> --}}
 
 
 </body>

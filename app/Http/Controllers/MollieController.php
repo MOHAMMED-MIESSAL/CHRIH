@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Commande;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use Carbon\Carbon;
@@ -49,45 +50,41 @@ class MollieController extends Controller
         $order_total= session()->get('order_total');
         $products_quantites=session()->get('products_quantites');
         $paymentId = session()->get('paymentId');
-        var_dump($products_quantites);
-        // foreach($products_quantites as $Command){
-        //     var_dump( $Command);
-        // }
-        // $payment = Mollie::api()->payments->get($paymentId);
-        // //dd($payment);
-        // if($payment->isPaid())
-        // {
 
-        //     $obj = new Payment();
-        //     $obj->payment_id = $paymentId;
-        //     $obj->numero_serie = $payment->description;
-        //     $obj->amount = $payment->amount->value;
-        //     $obj->currency = $payment->amount->currency;
-        //     $obj->payment_status = "Completed";
-        //     $obj->payment_method = "Bank";
-        //     $obj->user_id = Auth::id();
+        $payment = Mollie::api()->payments->get($paymentId);
+        if($payment->isPaid())
+        {
+            // create payment commande
+            $obj = new Payment();
+            $obj->payment_id = $paymentId;
+            $obj->amount = $payment->amount->value;
+            $obj->currency = $payment->amount->currency;
+            $obj->payment_status = "Completed";
+            $obj->payment_method = "Bank";
+            $obj->user_id = Auth::id();
+            $obj->save();
 
-        //     $obj->save();
+            // create commands
+            foreach ($products_quantites as $produit_id => $qte) {
+                Commande::create([
+                    "produit_id" => $produit_id,
+                    "user_id" => Auth::id(),
+                    "qte" => $qte,
+                    "numero_commande" => $paymentId,
+                ]);
+            }
 
-        //     foreach($products_quantites as $commande){
-        //         Command::create([
-        //             "user_id" => Auth::id(),
-        //             "" => ,
-        //             "" => ,
-        //             "" => ,
-        //         ]);
-        //     }
+            // delete the cart of user
+            Cart::where('user_id',Auth::id())->delete();
 
-        Cart::where('user_id',Auth::id())->delete();
+            session()->forget('paymentId');
+            session()->forget('order_total');
+            session()->forget('products_quantites');
 
-        //     session()->forget('paymentId');
-        //     session()->forget('order_total');
-        //     session()->forget('products_quantites');
-
-        //     return redirect('/');
-        // } else {
-        //     return redirect()->route('cancel');
-        // }
+            return redirect('/');
+        } else {
+            return redirect()->route('cancel');
+        }
     }
 
     public function cancel()

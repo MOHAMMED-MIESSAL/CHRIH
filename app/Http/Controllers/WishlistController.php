@@ -16,8 +16,10 @@ class WishlistController extends Controller
     $wishlist = Wishlist::where('user_id', Auth::id())->get();
     $user=Auth::user();
     $produits_cart =$user->produits_panier()->pluck('produit_id');
+    $produits = Produit::all();
+
     // var_dump($produits_cart);
-    return view('wishlist',compact('wishlist','produits_cart'));
+    return view('wishlist',compact('wishlist','produits_cart','produits'));
   }
   public function add( $id){
    
