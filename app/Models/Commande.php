@@ -13,4 +13,7 @@ class Commande extends Model
         'qte',
         'numero_commande',
     ];
+    public function produit(){
+        return $this->belongsTo(Produit::class);
+    }
 }

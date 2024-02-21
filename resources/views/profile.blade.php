@@ -48,7 +48,7 @@
                                     <!-- <img alt="..." 
                                     src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" 
                                     class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"> -->
-                                    <img alt="..." src="{{ asset('storage' . $user->avatar ) }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+                                    <img alt="..." src="{{ asset('storage/' . $user->avatar ) }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
 
 
                                 </div>
@@ -125,7 +125,7 @@
 
                                         </div>
 
-                                        <a  href=" {{ route('products', $payment )}} "   class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500" href="#">
+                                        <a  href=" {{ route('products', $payment->payment_id )}} "   class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500" href="#">
                                             View More 
                                         </a>
 
