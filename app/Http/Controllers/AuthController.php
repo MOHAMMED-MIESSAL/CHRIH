@@ -53,13 +53,11 @@ class AuthController extends Controller
     // }
 
     public function afficher_products($payment_id){ 
-      $user = Auth::user();
-      $payment = Commande::where('numero_commande' ,$payment_id)->get();
-  dd($payment);
-      if ($payment) {
-          $products = $payment->produits; // Assuming the relationship is named 'produits'
-          dd($products);
-          return view('afficher_products', compact('user', 'products'));
+      $commandes = Commande::where('numero_commande' ,$payment_id)->get();
+      // dd($commandes);
+      if ($commandes) {
+       
+          return view('afficher_products', compact('commandes'));
       } else {
           // Handle the case where the payment is not found
           abort(404);

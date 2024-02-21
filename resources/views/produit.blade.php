@@ -31,7 +31,7 @@
                     <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $produit->title }}</h1>
                     
                     <p class="leading-relaxed">{{$produit->description}}.</p>
-                    <p style=" color:white; background-color: gray; border-radius:5px ;     width: 86px; " >{{ $produit->category->name  }}</p>
+                    <p style=" color:white; background-color: gray; border-radius:5px ;width: fit-content;padding: 6px " >{{ $produit->category->name  }}</p>
 
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                         <div class="flex" style="flex-wrap: wrap;">
