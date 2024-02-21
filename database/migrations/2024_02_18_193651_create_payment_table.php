@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('payment_id');
             $table->string('product_name');
-            $table->string('quantity');
             $table->string('amount');
             $table->string('currency');
             $table->string('payment_status');

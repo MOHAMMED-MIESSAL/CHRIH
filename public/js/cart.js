@@ -49,6 +49,7 @@ function Calculate_summary(){
     let price_coupon=(price_subtotal*percentage_coupon)/100;
     summary_coupon.textContent="("+percentage_coupon+"%)  -$"+ price_coupon;
     summary_total.textContent="$"+ (price_subtotal-price_coupon);
+    document.getElementById('mollie_order_total').value=price_subtotal-price_coupon;
 
 }
 

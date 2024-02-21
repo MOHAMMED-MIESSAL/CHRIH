@@ -134,6 +134,7 @@
                             <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-gray-400">Order Total</span>
                                 <span id="summary_total" class="text-xl font-bold text-gray-700 dark:text-gray-400"></span>
+                                <input type="hidden" id="mollie_order_total" name="order_total" value="">
                             </div>
                             <h2 class="text-lg text-gray-500 dark:text-gray-400">We offer:</h2>
                             <div class="flex items-center gap-2 mb-4 ">

@@ -41,7 +41,7 @@ Route::get('/panier', function () {
 //mollie
 Route::post('mollie', [MollieController::class, 'mollie'])->name('mollie');
 Route::get('add_cart/{id}', [ProductController::class, 'add_cart'])->name('add_cart');
-Route::get('success', [MollieController::class, 'success'])->name('success');
+Route::get('/success', [MollieController::class, 'success'])->name('success');
 Route::get('cancel', [MollieController::class, 'cancel'])->name('cancel');
 
 Route::get('/profile',[AuthController::class,'profile'])->name('profile');

@@ -5,29 +5,39 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use Carbon\Carbon;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
 use Mollie\Laravel\Facades\Mollie;
+use Ramsey\Uuid\Type\Decimal;
+use Symfony\Component\VarDumper\VarDumper;
 
 class MollieController extends Controller
 {
+ 
     public function mollie(Request $request)
     {
-        // $products_quantites = array_combine($request->produits, $request->qte);
         
-        
+        $products_quantites = array_combine ($request->produits, $request->qte);
+        $order_total=$request->order_total;
+
+        $order_total_number = number_format($order_total, 2);
+        $decimal_num_dec = str_replace(',', '', $order_total_number);
+
+        session_start();
+        session()->put('order_total',$order_total);
+        session()->put('products_quantites',$products_quantites);
         $payment = Mollie::api()->payments->create([
             "amount" => [
                 "currency" => "EUR",
-                "value" => "10.00" 
+                "value" => $decimal_num_dec ,    
             ],
-            "description" => "product_name",
+            "description" => "Payment Chrih",
             "redirectUrl" => route('success'),
         ]);
 
         // dd($payment);
 
         session()->put('paymentId', $payment->id);
-        session()->put('quantity', 3);
     
         // redirect customer to Mollie checkout page
         return redirect($payment->getCheckoutUrl(), 303);
@@ -35,32 +45,46 @@ class MollieController extends Controller
 
     public function success(Request $request)
     {
-        
+        $order_total= session()->get('order_total');
+        $products_quantites=session()->get('products_quantites');
         $paymentId = session()->get('paymentId');
-        //dd($paymentId);
-        $payment = Mollie::api()->payments->get($paymentId);
-        //dd($payment);
-        if($payment->isPaid())
-        {
-            $obj = new Payment();
-            $obj->payment_id = $paymentId;
-            $obj->numero_serie = $payment->description;
-            $obj->quantity = session()->get('quantity');
-            $obj->amount = $payment->amount->value;
-            $obj->currency = $payment->amount->currency;
-            $obj->payment_status = "Completed";
-            $obj->payment_method = "Mollie";
-            $obj->user_id = Auth::id();
+        var_dump($products_quantites);
+        // foreach($products_quantites as $Command){
+        //     var_dump( $Command);
+        // }
+        // $payment = Mollie::api()->payments->get($paymentId);
+        // //dd($payment);
+        // if($payment->isPaid())
+        // {
 
-            $obj->save();
+        //     $obj = new Payment();
+        //     $obj->payment_id = $paymentId;
+        //     $obj->numero_serie = $payment->description;
+        //     $obj->amount = $payment->amount->value;
+        //     $obj->currency = $payment->amount->currency;
+        //     $obj->payment_status = "Completed";
+        //     $obj->payment_method = "Bank";
+        //     $obj->user_id = Auth::id();
 
-            session()->forget('paymentId');
-            session()->forget('quantity');
+        //     $obj->save();
 
-            return redirect('/');
-        } else {
-            return redirect()->route('cancel');
-        }
+        //     foreach($products_quantites as $commande){
+        //         Command::create([
+        //             "user_id" => Auth::id(),
+        //             "" => ,
+        //             "" => ,
+        //             "" => ,
+        //         ]);
+        //     }
+
+        //     session()->forget('paymentId');
+        //     session()->forget('order_total');
+        //     session()->forget('products_quantites');
+
+        //     return redirect('/');
+        // } else {
+        //     return redirect()->route('cancel');
+        // }
     }
 
     public function cancel()
