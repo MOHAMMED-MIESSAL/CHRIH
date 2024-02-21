@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
@@ -15,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -128,7 +130,7 @@
                         href="#">
                         Store
                     </a>
-
+                    
                     <div class="flex items-center" id="store-nav-content">
 
                         <a class="pl-3 inline-block no-underline hover:text-black" href="#">
@@ -137,19 +139,21 @@
                                 <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                             </svg>
                         </a>
-
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                            <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24">
-                                <path
-                                    d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
-                            </svg>
-                        </a>
+                        <div class="container_search">
+                            <input checked="" class="checkbox" type="checkbox"> 
+                            <div class="mainbox">
+                                <div class="iconContainer">
+                                    <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="search_icon"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
+                                </div>
+                             <input class="search_input" id="hero_field" placeholder="search" type="text">
+                            </div>
+                        </div>
 
                     </div>
+  
                 </div>
             </nav>
-
+    <div class="flex w-full"  id="search_list">
             @foreach ($produits as $pro)
                 <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                     <a href="{{ route('produit',$pro->id) }}">
@@ -184,11 +188,36 @@
 
             
         </div>
+    </div>    
+        
 
     </section>
 
 
     @include('components.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+      
+
+      $("#hero_field").keyup(function(){
+          var input = $(this).val(); 
+          if(input == "") input = 'all';
+          $.ajax({
+              url: "/search",
+              method: "POST",
+              data: {
+                  _token: '{{ csrf_token() }}', // Inclure le jeton CSRF 
+                  input: input
+              },
+              success: function(data){
+                  $("#search_list").html(data);
+              }
+          });
+      });
+  });
+    </script>
+{{-- <script src="{{asset('js/search.js')}}"></script> --}}
 
 
 </body>

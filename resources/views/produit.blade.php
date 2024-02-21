@@ -48,7 +48,7 @@
                         @endif
                         
 
-
+                        @auth
 
                         @if (!$wishlist->contains('produit_id', $produit->id))
                          <a href="{{route('add_wishlist',$produit->id)}}">
@@ -63,6 +63,7 @@
 
                         <a href="{{route('delete_wishlist',$produit->id)}}"><i class="fa-solid fa-heart"></i></a>
                         @endif
+                        @endauth
                     </div>
                 </div>
             </div>

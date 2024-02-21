@@ -49,6 +49,7 @@ Route::get('/home',[HomeController::class,'home'])->name('home');
 Route::get('/cart',[ProductController::class,'cart'])->name('cart');
 Route::get('/coupon/{coupon}',[ProductController::class,'coupon'])->name('coupon');
 Route::get('/',[HomeController::class,'home'])->name('home');
+Route::post('/search',[HomeController::class,'search']);
 Route::get('/produit/{id}',[HomeController::class,'produit'])->name('produit');
 Route::get('/produit/delete/cart/{id}',[ProductController::class,'delete_product_cart'])->name('delete_product_cart');
 
