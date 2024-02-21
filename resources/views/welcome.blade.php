@@ -198,17 +198,13 @@
                     @endauth
                         
                         </div>
-                        <p class="pt-1 text-gray-900">{{ $pro->prix }}$</p>
-                   
-                </div>
-            @endforeach
-           
-            {{ $produits->links()  }}
-
+                    </div>
+                @endforeach
+            </div>
             
-        </div>
-    </div>    
-        
+            
+{{ $produits->links() }}
+
 
     </section>
 

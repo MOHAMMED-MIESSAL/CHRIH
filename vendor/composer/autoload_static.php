@@ -619,6 +619,7 @@ class ComposerStaticInit4b51ed4d0216f9ce16c25da629d0f115
         'App\\Models\\Panier' => __DIR__ . '/../..' . '/app/Models/Panier.php',
         'App\\Models\\Payment' => __DIR__ . '/../..' . '/app/Models/Payment.php',
         'App\\Models\\Produit' => __DIR__ . '/../..' . '/app/Models/Produit.php',
+        'App\\Models\\Tergui' => __DIR__ . '/../..' . '/app/Models/Tergui.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Wishlist' => __DIR__ . '/../..' . '/app/Models/Wishlist.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

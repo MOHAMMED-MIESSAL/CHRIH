@@ -42,8 +42,13 @@ class HomeController extends Controller
                
  
         }else{
-            $produits = DB::table('produits')->select('*')->where('title', 'like', '%' . $input . '%')->orWhere('prix', 'like','%'.$input.'%')->get();
-            return view('components.search',compact('produits','wishlist'));
+            $produits = DB::table('produits')
+            ->select('produits.*', 'categories.name as category_name')
+            ->leftJoin('categories', 'produits.category_id', '=', 'categories.id')
+            ->where('produits.title', 'like', '%' . $input . '%')
+            ->orWhere('produits.prix', 'like', '%' . $input . '%')
+            ->get();           
+             return view('components.search',compact('produits','wishlist'));
         }
         
 

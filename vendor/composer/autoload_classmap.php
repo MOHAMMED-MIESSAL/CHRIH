@@ -30,6 +30,7 @@ return array(
     'App\\Models\\Panier' => $baseDir . '/app/Models/Panier.php',
     'App\\Models\\Payment' => $baseDir . '/app/Models/Payment.php',
     'App\\Models\\Produit' => $baseDir . '/app/Models/Produit.php',
+    'App\\Models\\Tergui' => $baseDir . '/app/Models/Tergui.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Wishlist' => $baseDir . '/app/Models/Wishlist.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
