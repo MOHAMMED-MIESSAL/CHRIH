@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Produit;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Wishlist;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,9 @@ class ProductController extends Controller
     public function cart(){ 
         $user=Auth::user();
         $produits=$user->produits_panier()->get();
-        return view('panier',compact('produits'));
+        $wishlist = Wishlist::where('user_id', Auth::id())->get();
+
+        return view('panier',compact('produits','wishlist'));
     }
     public function delete_product_cart($id){
         Auth::user()->produits_panier()->detach($id);

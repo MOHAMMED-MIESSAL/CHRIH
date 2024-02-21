@@ -75,7 +75,8 @@
                             </a>
                         @endif
                         @if ($wishlist->contains('produit_id', $produit->id))
-                            <a  href="{{ route('delete_wishlist', $produit->id) }}"><i style="    width: 53px;height: auto;"  class="fa-solid fa-heart"></i></a>
+                            <a  href="{{ route('delete_wishlist', $produit->id) }}"><img style="    width: 58px;
+                                height: 49px;" src="{{asset('images/love.svg')}}" alt="" srcset=""></a>
                         @endif
                     @endauth
 
