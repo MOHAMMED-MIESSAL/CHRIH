@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use Carbon\Carbon;
@@ -76,6 +77,8 @@ class MollieController extends Controller
         //             "" => ,
         //         ]);
         //     }
+
+        Cart::where('user_id',Auth::id())->delete();
 
         //     session()->forget('paymentId');
         //     session()->forget('order_total');
