@@ -1,12 +1,16 @@
  
-<div class="flex w-full"  id="search_list">
+<div id="search_list" class="flex flex-wrap -mx-4">
     @foreach ($produits as $pro)
         <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
             <a href="{{ route('produit',$pro->id) }}">
                 <img style="width: 100%;height: 130px;" class="hover:grow hover:shadow-lg"
                     src="{{ asset('storage/'. $pro->image ) }}">
                 <div class="pt-3 flex items-center justify-between">
-                    <p class="">{{ $pro->title }}</p>
+              
+                        <p>{{ $pro->title }}</p>
+                         <p style="color:white; background-color: gray; border-radius: 5px; width: fit-content; padding: 2px 4px;">{{ $pro->category_name }}</p>
+            
+                
                 </a>
                 @auth
             @if (!$wishlist->contains('produit_id', $pro->id))
@@ -28,8 +32,6 @@
                 <p class="pt-1 text-gray-900">{{ $pro->prix }}$</p>
            
         </div>
-    @endforeach
-   
- 
-    
+    @endforeach 
 </div>
+ 
