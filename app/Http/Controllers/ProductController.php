@@ -32,7 +32,7 @@ class ProductController extends Controller
         $coupon=Coupon::where('coupon',$coupon)->first();
         if(!$coupon) return false;
         else {
-            return true;
+            return $coupon->percentage;
         }
     }
 }

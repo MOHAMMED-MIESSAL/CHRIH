@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="hidden px-4 lg:block lg:w-2/12">
-                                    <p class="text-lg font-bold text-blue-500 dark:text-gray-400">${{ $produit->prix }}</p>
+                                    <p class="prices text-lg font-bold text-blue-500 dark:text-gray-400" price="{{ $produit->prix }}">${{ $produit->prix }}</p>
                                 </div>
                                 <div class="w-auto px-4 md:w-1/6 lg:w-2/12 ">
                                     <div
@@ -73,7 +73,7 @@
 
                                         
                                             <input type="number" name="qte[]" value="1" max="{{$produit->qte}}" min="1"
-                                            class="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-gray-400 md:text-right"
+                                            class="quantites w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-gray-400 md:text-right"
                                             placeholder="1">
                                             <input type="hidden" name="produits[]" value="{{$produit->id}}">
                                         </form>
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
-                                    <p class="text-lg font-bold text-blue-500 dark:text-gray-400">$99.00</p>
+                                    <p class="subtotal text-lg font-bold text-blue-500 dark:text-gray-400" subtotal="{{ $produit->prix }}" >${{ $produit->prix }}</p>
                                     <a class="" href="{{route('delete_product_cart',$produit->id)}}">Delete</a>
                                 </div>
                                 
@@ -121,15 +121,19 @@
                             <div
                                 class="flex items-center justify-between pb-4 mb-4 border-b border-gray-300 dark:border-gray-700 ">
                                 <span class="text-gray-700 dark:text-gray-400">Subtotal</span>
-                                <span class="text-xl font-bold text-gray-700 dark:text-gray-400 ">$100</span>
+                                <span id="summary_subtotal" class="text-xl font-bold text-gray-700 dark:text-gray-400 "></span>
                             </div>
                             <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-gray-400 ">Shipping</span>
                                 <span class="text-xl font-bold text-gray-700 dark:text-gray-400 ">Free</span>
                             </div>
                             <div class="flex items-center justify-between pb-4 mb-4 ">
+                                <span class="text-gray-700 dark:text-gray-400 ">Coupons</span>
+                                <span id="summary_coupon" class="text-xl font-bold text-gray-700 dark:text-gray-400 "></span>
+                            </div>
+                            <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-gray-400">Order Total</span>
-                                <span class="text-xl font-bold text-gray-700 dark:text-gray-400">$99.00</span>
+                                <span id="summary_total" class="text-xl font-bold text-gray-700 dark:text-gray-400"></span>
                             </div>
                             <h2 class="text-lg text-gray-500 dark:text-gray-400">We offer:</h2>
                             <div class="flex items-center gap-2 mb-4 ">
@@ -161,7 +165,7 @@
 
 @include('components.footer')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="{{asset('js/counpon.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 
 
