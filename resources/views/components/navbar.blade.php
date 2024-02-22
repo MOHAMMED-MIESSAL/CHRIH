@@ -74,9 +74,12 @@
         
             @auth
 
-            <a href="{{route('logout')}}"class="mx-3">logout</a>
+           
+            <button id="forget_sesseion" > <a href="{{route('logout')}}"class="mx-3">logout</a></button>
+
             @endauth
 
         </div>
     </div>
 </nav>
+<script src="{{asset('js/forget_session.js')}}"></script>
