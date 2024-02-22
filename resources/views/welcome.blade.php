@@ -262,8 +262,8 @@
                 for(let i = 0; i < produits.length; i++) {
                         html += '<div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4 min-w-0">';
                         html += '<div class="p-6 flex flex-col bg-white shadow-md">';
-                        html += "<a href="{{ route('produit', produits[i].id) }}">";
-                        html += '<img style="width: 100%; height: 130px;" class="hover:grow hover:shadow-lg" src="{{ asset('storage') }}/' + produits[i].image + '">';
+                        html += '<a href="/produit/'+ produits[i].id+'">';
+                        html += '<img style="width: 100%; height: 215px;" class="hover:grow hover:shadow-lg" src="{{ asset('storage') }}/' + produits[i].image + '">';
                         html += '<div class="pt-3 flex items-center justify-between">';
                         html += '<div>';
                         html += '<p>' + produits[i].title + '</p>';

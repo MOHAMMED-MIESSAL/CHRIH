@@ -62,26 +62,24 @@
                                     <p class="prices text-lg font-bold text-blue-500 dark:text-gray-400" price="{{ $produit->prix }}">${{ $produit->prix }}</p>
                                 </div>
                                 <div class="w-auto px-4 md:w-1/6 lg:w-2/12 ">
-                                    <div
-                                        class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700 ">
-                                        <button class="py-2 hover:text-gray-700 dark:text-gray-400">
+                                    <div class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700 ">
+                                        <button type="button" class="py-2 hover:text-gray-700 dark:text-gray-400">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                                             </svg>
                                         </button>
 
+                                        <input type="number" name="qte[]" value="1" max="{{$produit->qte}}" min="1"
+                                        class="quantites w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-gray-400 md:text-right"
+                                        placeholder="1">
+                                        <input type="hidden" name="produits[]" value="{{$produit->id}}">
+                                   
                                         
-                                            <input type="number" name="qte[]" value="1" max="{{$produit->qte}}" min="1"
-                                            class="quantites w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-gray-400 md:text-right"
-                                            placeholder="1">
-                                            <input type="hidden" name="produits[]" value="{{$produit->id}}">
-                                        </form>
-                                        
 
 
 
-                                        <button class="py-2 hover:text-gray-700 dark:text-gray-400">
+                                        <button type="button" class="py-2 hover:text-gray-700 dark:text-gray-400">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                 <path
