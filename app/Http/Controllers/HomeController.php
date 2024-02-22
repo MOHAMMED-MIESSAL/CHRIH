@@ -45,8 +45,11 @@ class HomeController extends Controller
         $input = $request->input('input');
 
 
-        $produits = Produit::all();
-        $wishlist = Wishlist::where('user_id', Auth::id())->get();
+        $produits = DB::table('produits')
+        ->select('produits.*', 'categories.name as category_name')
+        ->leftJoin('categories', 'produits.category_id', '=', 'categories.id')
+        ->get();       
+         $wishlist = Wishlist::where('user_id', Auth::id())->get();
 
 
         if ($input == "all") {
