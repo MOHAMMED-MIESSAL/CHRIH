@@ -49,12 +49,16 @@
                                     <div class="flex flex-wrap items-center -mx-4">
                                         <div class="w-full px-4 mb-3 md:w-1/3">
                                             <div class="w-full h-96 md:h-24 md:w-24">
+                                                <a href="{{ route('produit',$produit->id) }}">
                                                 <img src="{{ asset('storage/'.$produit->image) }}" alt=""
                                                     class="object-contain  w-full h-full">
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="w-2/3 px-4">
+                                            <a href="{{ route('produit',$produit->id) }}">
                                             <h2 class="mb-2 text-xl font-bold dark:text-gray-400">{{ $produit->title }}</h2>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +96,7 @@
                                 </div>
                                 <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
                                     <p class="subtotal text-lg font-bold text-blue-500 dark:text-gray-400" subtotal="{{ $produit->prix }}" >${{ $produit->prix }}</p>
-                                    <a class="" href="{{route('delete_product_cart',$produit->id)}}">Delete</a>
+                                    <a class="" href="{{route('delete_product_cart',$produit->id)}}"><img style="    margin-left: 135px;    width: 43px; " src="{{asset('images/trash.png')}}" alt="" srcset=""></a>
                                 </div>
                                 
                             </div>

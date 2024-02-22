@@ -11,6 +11,8 @@
         content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
 
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 
@@ -41,8 +43,10 @@
                         </div>
                      
                         <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
-                            <h2 class="font-bold text-gray-500 dark:text-gray-400"> Subtotal</h2>
+                            <h2 class="font-bold text-gray-500 dark:text-gray-400"> Actions</h2>
                         </div>
+                     
+                       
                     </div>
                     <div class="py-4 mb-8 border-t border-b border-gray-200 dark:border-gray-700">
                         @foreach ($wishlist as $wish)
@@ -51,26 +55,44 @@
                                 <div class="flex flex-wrap items-center -mx-4">
                                     <div class="w-full px-4 mb-3 md:w-1/3">
                                         <div class="w-full h-96 md:h-24 md:w-24">
+                                          <a href="{{ route('produit',$wish->produit->id) }}">
                                             <img src="{{ asset('storage/' . $wish->produit->image) }}" alt="" class="object-contain w-full h-full">
+                                        </a>                    
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="hidden px-4 lg:block lg:w-2/12">
+                                <a href="{{ route('produit',$wish->produit->id) }}">
                                 <p class="text-lg font-bold text-blue-500 dark:text-gray-400">{{ $wish->produit->title }}</p>
+                                </a>
+
                             </div>
+                       
                         
                             <div class="hidden px-4 lg:block lg:w-2/12">
                                 <p class="text-lg font-bold text-blue-500 dark:text-gray-400">{{ $wish->produit->prix }}</p>
                             </div>
-                            <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12">
+                            <div class="w-auto flex  px-4 text-right md:w-1/6 lg:w-2/12">
+                            
                                 @if (!$produits_cart->contains(  $wish->produit->id))
+
                                 <a @auth href="{{route('add_cart',$wish->produit->id)}}" @endauth @guest href="/admin" @endguest class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                                     Add to cart
                                 </a>
                                 @endif
-                                <a class="" href="{{route('delete_wishlist',$wish->produit->id)}}">Delete</a>
+                                @if ($produits_cart->contains(  $wish->produit->id))
+
+                                <a @auth href="{{route('cart')}}" @endauth @guest href="/admin" @endguest class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                                    Added
+                                </a>
+                                @endif
+                                <a class="" href="{{route('delete_wishlist',$wish->produit->id)}}"><img style="    width: 43px; " src="{{asset('images/trash.png')}}" alt="" srcset=""></a>
+
+                            
+
                             </div>
+                         
                         </div>
                     @endforeach
                         
