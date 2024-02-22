@@ -50,7 +50,7 @@
                                     <!-- <img alt="..." 
                                     src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" 
                                     class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"> -->
-                                    <img alt="..." src="{{ asset('storage/' . $user->avatar ) }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+                                    <img alt="..." src="{{ asset('storage/' . $user->avatar ) }}" style="height: 170px" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
 
 
                                 </div>
