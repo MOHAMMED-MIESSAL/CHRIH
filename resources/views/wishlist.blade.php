@@ -35,9 +35,6 @@
                         <div class="hidden px-4 lg:block lg:w-2/12">
                             <h2 class="font-bold text-gray-500 dark:text-gray-400">Product name</h2>
                         </div>
-                        <div class="hidden px-4 lg:block lg:w-2/12">
-                            <h2 class="font-bold text-gray-500 dark:text-gray-400">Product category</h2>
-                        </div>
                      
                         <div class="hidden px-4 lg:block lg:w-2/12">
                             <h2 class="font-bold text-gray-500 dark:text-gray-400">Price</h2>   

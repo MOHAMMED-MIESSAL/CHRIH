@@ -26,7 +26,7 @@
         <form action="{{route('mollie')}}" method="post">
         @csrf
             <div>
-                <h2 class="mb-8 text-4xl font-bold dark:text-gray-400">my favorite product</h2>
+                <h2 class="mb-8 text-4xl font-bold dark:text-gray-400">my hystorique product</h2>
                 <div class="p-6 mb-8 border bg-gray-50 dark:bg-gray-800 dark:border-gray-800">
                     <div class="flex-wrap items-center hidden mb-6 -mx-4 md:flex md:mb-8">
                         <div class="w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0">

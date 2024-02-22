@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 use App\Models\Commande;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -36,12 +37,14 @@ class AuthController extends Controller
    
     }
     public function profile(){
+      $wishlist = Wishlist::where('user_id', Auth::id())->get();
+
       // code
       $user = Auth::user();
       
       $payments=Payment::where('user_id',$user->id)->get();
       // dd($payments);
-      return view('profile' , compact('user' , 'payments') );
+      return view('profile' , compact('user' , 'payments','wishlist') );
     }
 
 
@@ -53,11 +56,13 @@ class AuthController extends Controller
     // }
 
     public function afficher_products($payment_id){ 
+      $wishlist = Wishlist::where('user_id', Auth::id())->get();
+
       $commandes = Commande::where('numero_commande' ,$payment_id)->get();
       // dd($commandes);
       if ($commandes) {
        
-          return view('afficher_products', compact('commandes'));
+          return view('afficher_products', compact('commandes','wishlist'));
       } else {
           // Handle the case where the payment is not found
           abort(404);
