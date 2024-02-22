@@ -21,6 +21,8 @@
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
+    @include('components.navbar')
+
     <!-- component -->
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
@@ -152,6 +154,7 @@
             </footer>
         </section>
     </main>
+    @include('components.footer')
 </body>
 
 </html>
