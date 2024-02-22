@@ -154,7 +154,7 @@
             </footer>
         </section>
     </main>
-    @include('components.footer')
+    @include('components.footer')   
 </body>
 
 </html>

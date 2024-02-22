@@ -50,7 +50,7 @@ class MollieController extends Controller
         $order_total= session()->get('order_total');
         $products_quantites=session()->get('products_quantites');
         $paymentId = session()->get('paymentId');
-
+        // dd($products_quantites);
         $payment = Mollie::api()->payments->get($paymentId);
         if($payment->isPaid())
         {
@@ -81,7 +81,7 @@ class MollieController extends Controller
             session()->forget('order_total');
             session()->forget('products_quantites');
 
-            return redirect('/');
+            return redirect()->route('profile');
         } else {
             return redirect()->route('cancel');
         }
